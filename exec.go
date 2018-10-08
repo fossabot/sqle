@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-// Exec will execute the query with it's argument against the databse and
+// Exec will execute the query with it's argument against the database and
 // returns any occurring errors.
 func (s Sqle) Exec(query string, args ...interface{}) error {
 	_, err := s.ExecID(query, args...)
@@ -16,7 +16,7 @@ func (s Sqle) Exec(query string, args ...interface{}) error {
 // returns any occurring errors.
 //
 // If the executed query is an `INSERT` operation with an auto-generated ID
-// (for example choosen by the database because of a `AUTO-INCREMENT` flag),
+// (for example chosen by the database because of a `AUTO-INCREMENT` flag),
 // then `lastInsertID` will contain the generated ID value.
 func (s Sqle) ExecID(query string, args ...interface{}) (lastInsertID int64, err error) {
 	tx, err := s.db.Begin()
