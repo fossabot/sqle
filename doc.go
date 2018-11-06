@@ -1,6 +1,6 @@
 /*
-Package SQLE is a general purpose helper package for sql.DB that simplifies
-and reduces error checking for SQL based operations.
+Package sqle is a general purpose, transparent, non-magical helper package
+for sql.DB that simplifies and reduces error checking for various operations.
 
 In order to initialize a new `*sqle.Sqle` instance you need an working
 `*sql.DB` connection. Pass it to the `New` function
@@ -80,7 +80,7 @@ examples are copied from the vikebot.com database code)
 		var id, joined, min, max, roundstatus int
 		var name, wallpaper string
 		var starttime mysql.NullTime
-		err := sqlSelectRange(`
+		err := s.SelectRange(`
 			SELECT round.id,
 				round.name,
 				round.wallpaper,
